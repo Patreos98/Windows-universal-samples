@@ -49,11 +49,6 @@ namespace SDKTemplate
         {
             var softwareBitmap = FrameRenderer.ConvertToDisplayableImage(frame?.VideoMediaFrame);
 
-            RenderFrame(softwareBitmap);
-        }
-
-        public void RenderFrame(SoftwareBitmap softwareBitmap)
-        {
             if (softwareBitmap != null)
             {
                 // Swap the processed frame to _backBuffer and trigger UI thread to render it
@@ -86,6 +81,7 @@ namespace SDKTemplate
                     });
             }
         }
+
         // Function delegate that transforms a scanline from an input image to an output image.
         private unsafe delegate void TransformScanline(int pixelWidth, byte* inputRowBytes, byte* outputRowBytes);
 
